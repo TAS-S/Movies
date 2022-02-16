@@ -68,6 +68,7 @@
                 </td>
                 <td class="px-4 py-3 text-ms font-semibold border">{{ $serie->slug }}</td>
                 <td class="px-4 py-3 text-sm border">
+                    <a href="{{ route('admin.seasons.index', $serie->id) }}" class="px-4 py-2 mr-2 text-white bg-blue-500 border hover:bg-blue-900 border-transparent rounded-md font-semibold text-xs uppercase tracking-widest active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring  disabled:opacity-25 transition">Seasons</a>
                     <x-m-button wire:click="showEditModal({{ $serie->id }})" class="mr-2 bg-green-500 hover:bg-green-700">Edit</x-m-button>
                     <x-m-button wire:click="deleteSerie({{ $serie->id }})" class="bg-red-500 hover:bg-red-700">Delete</x-m-button>
                 </td>

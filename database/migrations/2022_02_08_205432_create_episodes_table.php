@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('episodes', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('tmdb_db')->unique();
+            $table->bigInteger('tmdb_id')->unique();
             $table->foreignId('season_id')->constrained();
             $table->string('name');
             $table->integer('episode_number');
