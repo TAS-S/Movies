@@ -59,47 +59,60 @@
         <div class="w-full overflow-x-auto">
             <table class="w-full">
                 <thead>
-                    <tr class="text-md font-semibold tracking-wide text-left text-gray-900 bg-gray-100 uppercase border-b border-gray-600">
+                    <tr
+                        class="text-md font-semibold tracking-wide text-left text-gray-900 bg-gray-100 uppercase border-b border-gray-600">
                         <th class="px-4 py-3 cursor-pointer" wire:click="sortByColumn('title')">
                             <div class="flex space-x-4 content-center">
                                 <span>Title</span>
-                                    @if ($sortColumn  == 'title' && $sortDirection == 'desc')
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                                        </svg>
-                                    @elseif ($sortColumn  == 'title' && $sortDirection == 'asc')
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
-                                        </svg>
-                                    @endif
+                                @if ($sortColumn == 'title' && $sortDirection == 'desc')
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7" />
+                                </svg>
+                                @elseif ($sortColumn == 'title' && $sortDirection == 'asc')
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 15l7-7 7 7" />
+                                </svg>
+                                @endif
                             </div>
                         </th>
                         <th class="px-4 py-3 cursor-pointer" wire:click="sortByColumn('rating')">
                             <div class="flex space-x-4 content-center">
                                 <span>Rating</span>
-                                    @if ($sortColumn  == 'rating' && $sortDirection == 'desc')
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                                        </svg>
-                                    @elseif ($sortColumn  == 'rating' && $sortDirection == 'asc')
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
-                                        </svg>
-                                    @endif
+                                @if ($sortColumn == 'rating' && $sortDirection == 'desc')
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7" />
+                                </svg>
+                                @elseif ($sortColumn == 'rating' && $sortDirection == 'asc')
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 15l7-7 7 7" />
+                                </svg>
+                                @endif
                             </div>
                         </th>
                         <th class="px-4 py-3 cursor-pointer" wire:click="sortByColumn('visits')">
                             <div class="flex space-x-4 content-center">
                                 <span>Visits</span>
-                                    @if ($sortColumn  == 'visits' && $sortDirection == 'desc')
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                                        </svg>
-                                    @elseif ($sortColumn  == 'visits' && $sortDirection == 'asc')
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
-                                        </svg>
-                                    @endif
+                                @if ($sortColumn == 'visits' && $sortDirection == 'desc')
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7" />
+                                </svg>
+                                @elseif ($sortColumn == 'visits' && $sortDirection == 'asc')
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 15l7-7 7 7" />
+                                </svg>
+                                @endif
                             </div>
                         </th>
                         <th class="px-4 py-3">Runtime</th>
@@ -113,7 +126,8 @@
                     <tr class="text-gray-700">
                         <td class="px-4 py-3 border">
                             <span wire:click="showMovieDetail({{ $table_movie->id }})"
-                            class="text-blue-500 hover:text-blue-700 cursor-pointer">{{ $table_movie->title }}</span>
+                                class="text-blue-500 hover:text-blue-700 cursor-pointer">{{ $table_movie->title
+                                }}</span>
                         </td>
                         <td class="px-4 py-3 border">
                             {{ $table_movie->rating }}
@@ -121,7 +135,8 @@
                         <td class="px-4 py-3 border">
                             {{ $table_movie->visits }}
                         </td>
-                        <td class="px-4 py-3 text-ms font-semibold border">{{ date('H:i', mktime(0, $table_movie->runtime)) }}
+                        <td class="px-4 py-3 text-ms font-semibold border">{{ date('H:i', mktime(0,
+                            $table_movie->runtime)) }}
                         </td>
                         <td class="px-4 py-3 text-ms font-semibold border">
                             @if ($table_movie->is_public)
@@ -161,93 +176,115 @@
         <x-slot name="title">Update Movie</x-slot>
         <x-slot name="content">
             <div class="mt-10 sm:mt-0">
-                <div class="mt-5 md:mt-0 md:col-span-2">
-                    <form>
-                        <div class="shadow overflow-hidden sm:rounded-md">
-                            <div class="px-4 py-5 bg-white sm:p-6">
-                                <div class="flex flex-col">
-                                    <label for="first-name"
-                                        class="block text-sm font-medium text-gray-700">Title</label>
-                                    <input wire:model="title" type="text" autocomplete="given-name"
-                                        class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
-                                    @error('title')
-                                    <span class="text-red-500 text-sm">{{ $message }}</span>
-                                    @enderror
-                                </div>
-                                <div class="flex flex-col">
-                                    <label for="first-name"
-                                        class="block text-sm font-medium text-gray-700">Runtime</label>
-                                    <input wire:model="runtime" type="text" autocomplete="given-name"
-                                        class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
-                                    @error('runtime')
-                                    <span class="text-red-500 text-sm">{{ $message }}</span>
-                                    @enderror
-                                </div>
-                                <div class="flex flex-col">
-                                    <label for="first-name"
-                                        class="block text-sm font-medium text-gray-700">Language</label>
-                                    <input wire:model="lang" type="text" autocomplete="given-name"
-                                        class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
-                                    @error('lang')
-                                    <span class="text-red-500 text-sm">{{ $message }}</span>
-                                    @enderror
-                                </div>
-                                <div class="flex flex-col">
-                                    <label for="first-name"
-                                        class="block text-sm font-medium text-gray-700">Format</label>
-                                    <input wire:model="videoFormat" type="text" autocomplete="given-name"
-                                        class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
-                                    @error('videoFormat')
-                                    <span class="text-red-500 text-sm">{{ $message }}</span>
-                                    @enderror
-                                </div>
-                                <div class="flex flex-col">
-                                    <label for="first-name"
-                                        class="block text-sm font-medium text-gray-700">Rating</label>
-                                    <input wire:model="rating" type="text" autocomplete="given-name"
-                                        class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
-                                    @error('rating')
-                                    <span class="text-red-500 text-sm">{{ $message }}</span>
-                                    @enderror
-                                </div>
-                                <div class="flex flex-col">
-                                    <label for="first-name"
-                                        class="block text-sm font-medium text-gray-700">Poster</label>
-                                    <input wire:model="posterPath" type="text" autocomplete="given-name"
-                                        class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
-                                    @error('posterPath')
-                                    <span class="text-red-500 text-sm">{{ $message }}</span>
-                                    @enderror
-                                </div>
-                                <div class="flex flex-col">
-                                    <label for="first-name"
-                                        class="block text-sm font-medium text-gray-700">Backdrop</label>
-                                    <input wire:model="backdropPath" type="text" autocomplete="given-name"
-                                        class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
-                                    @error('backdropPath')
-                                    <span class="text-red-500 text-sm">{{ $message }}</span>
-                                    @enderror
-                                </div>
-                                <div class="flex flex-col">
-                                    <label for="overview"
-                                        class="block text-sm font-medium text-gray-700">Overview</label>
-                                    <textarea
-                                        class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">{{ $overview }}</textarea>
-                                    @error('overview')
-                                    <span class="text-red-500 text-sm">{{ $message }}</span>
-                                    @enderror
-                                </div>
-                                <div class="flex flex-col">
-                                    <div class="flex items-center px-2 py-6">
-                                        <input wire:model="isPublic" type="checkbox"
-                                            class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded">
-                                        <label for="remember-me" class="ml-2 block text-sm text-gray-900"> Published
-                                        </label>
+                <div class="mt-5 md:mt-0 md:col-span-2" x-data="{tab: 0}">
+                    <div class="flex border border-black overflow-hidden">
+                        <button class="px-4 py-2 w-full" x-on:click.prevent="tab = 0">Form</button>
+                        <button class="px-4 py-2 w-full" x-on:click.prevent="tab = 1">Tags</button>
+                        <button class="px-4 py-2 w-full" x-on:click.prevent="tab = 2">Casts</button>
+                    </div>
+                    <div>
+                        <div class="p-4 space-x-2" x-show="tab === 0">
+                            <form>
+                                <div class="shadow overflow-hidden sm:rounded-md">
+                                    <div class="px-4 py-5 bg-white sm:p-6">
+                                        <div class="flex flex-col">
+                                            <label for="first-name"
+                                                class="block text-sm font-medium text-gray-700">Title</label>
+                                            <input wire:model="title" type="text" autocomplete="given-name"
+                                                class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
+                                            @error('title')
+                                            <span class="text-red-500 text-sm">{{ $message }}</span>
+                                            @enderror
+                                        </div>
+                                        <div class="flex flex-col">
+                                            <label for="first-name"
+                                                class="block text-sm font-medium text-gray-700">Runtime</label>
+                                            <input wire:model="runtime" type="text" autocomplete="given-name"
+                                                class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
+                                            @error('runtime')
+                                            <span class="text-red-500 text-sm">{{ $message }}</span>
+                                            @enderror
+                                        </div>
+                                        <div class="flex flex-col">
+                                            <label for="first-name"
+                                                class="block text-sm font-medium text-gray-700">Language</label>
+                                            <input wire:model="lang" type="text" autocomplete="given-name"
+                                                class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
+                                            @error('lang')
+                                            <span class="text-red-500 text-sm">{{ $message }}</span>
+                                            @enderror
+                                        </div>
+                                        <div class="flex flex-col">
+                                            <label for="first-name"
+                                                class="block text-sm font-medium text-gray-700">Format</label>
+                                            <input wire:model="videoFormat" type="text" autocomplete="given-name"
+                                                class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
+                                            @error('videoFormat')
+                                            <span class="text-red-500 text-sm">{{ $message }}</span>
+                                            @enderror
+                                        </div>
+                                        <div class="flex flex-col">
+                                            <label for="first-name"
+                                                class="block text-sm font-medium text-gray-700">Rating</label>
+                                            <input wire:model="rating" type="text" autocomplete="given-name"
+                                                class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
+                                            @error('rating')
+                                            <span class="text-red-500 text-sm">{{ $message }}</span>
+                                            @enderror
+                                        </div>
+                                        <div class="flex flex-col">
+                                            <label for="first-name"
+                                                class="block text-sm font-medium text-gray-700">Poster</label>
+                                            <input wire:model="posterPath" type="text" autocomplete="given-name"
+                                                class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
+                                            @error('posterPath')
+                                            <span class="text-red-500 text-sm">{{ $message }}</span>
+                                            @enderror
+                                        </div>
+                                        <div class="flex flex-col">
+                                            <label for="first-name"
+                                                class="block text-sm font-medium text-gray-700">Backdrop</label>
+                                            <input wire:model="backdropPath" type="text" autocomplete="given-name"
+                                                class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
+                                            @error('backdropPath')
+                                            <span class="text-red-500 text-sm">{{ $message }}</span>
+                                            @enderror
+                                        </div>
+                                        <div class="flex flex-col">
+                                            <label for="overview"
+                                                class="block text-sm font-medium text-gray-700">Overview</label>
+                                            <textarea
+                                                class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">{{ $overview }}</textarea>
+                                            @error('overview')
+                                            <span class="text-red-500 text-sm">{{ $message }}</span>
+                                            @enderror
+                                        </div>
+                                        <div class="flex flex-col">
+                                            <div class="flex items-center px-2 py-6">
+                                                <input wire:model="isPublic" type="checkbox"
+                                                    class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded">
+                                                <label for="remember-me" class="ml-2 block text-sm text-gray-900">
+                                                    Published
+                                                </label>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            </form>
                         </div>
-                    </form>
+                        <div class="p-4 space-x-2" x-show="tab === 1">
+                            @if ($movie)
+                                <livewire:movie-tag :movie="$movie" />
+                                {{-- @livewire('movie-tag') --}}
+                            @endif
+                        </div>
+                        <div class="p-4 space-x-2" x-show="tab === 2">
+                            @if ($movie)
+                                <livewire:movie-cast :movie="$movie" />
+                            @endif
+                        </div>
+                    </div>
+
                 </div>
             </div>
 
@@ -262,9 +299,10 @@
         <x-slot name="title">Trailer Movie</x-slot>
         <x-slot name="content">
             @if ($movie)
-                @foreach ($movie->trailers as $trailer )
-                    <x-jet-button wire:click="deleteTrailer({{ $trailer->id }})" class="hover:bg-red-500">{{ $trailer->name }}</x-jet-button>
-                @endforeach
+            @foreach ($movie->trailers as $trailer )
+            <x-jet-button wire:click="deleteTrailer({{ $trailer->id }})" class="hover:bg-red-500">{{ $trailer->name }}
+            </x-jet-button>
+            @endforeach
             @endif
             <div class="mt-10 sm:mt-0">
                 <div class="mt-5 md:mt-0 md:col-span-2">
@@ -281,8 +319,8 @@
                                     @enderror
                                 </div>
                                 <div class="flex flex-col">
-                                    <label for="embedHtml"
-                                        class="block text-sm font-medium text-gray-700">Embed Html</label>
+                                    <label for="embedHtml" class="block text-sm font-medium text-gray-700">Embed
+                                        Html</label>
                                     <textarea wire:model="embedHtml"
                                         class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"></textarea>
                                     @error('embedHtml')
@@ -311,42 +349,43 @@
 
                     <div class="bg-white shadow overflow-hidden sm:rounded-lg">
                         <div class="px-4 py-5 sm:px-6">
-                          <h3 class="text-lg leading-6 font-medium text-gray-900">Title</h3>
-                          <p class="mt-1 max-w-2xl text-sm text-gray-500">
-                              @if ($movie)
-                            {{ $movie->title }}
+                            <h3 class="text-lg leading-6 font-medium text-gray-900">Title</h3>
+                            <p class="mt-1 max-w-2xl text-sm text-gray-500">
+                                @if ($movie)
+                                {{ $movie->title }}
                                 @endif
                             </p>
                         </div>
                         <div class="border-t border-gray-200">
-                          <dl>
-                            <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                              <dt class="text-sm font-medium text-gray-500">Full name</dt>
-                              <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">Margot Foster</dd>
-                            </div>
-                            <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                              <dt class="text-sm font-medium text-gray-500">Application for</dt>
-                              <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">Backend Developer</dd>
-                            </div>
-                            <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                              <dt class="text-sm font-medium text-gray-500">Email address</dt>
-                              <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">margotfoster@example.com</dd>
-                            </div>
-                            <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                              <dt class="text-sm font-medium text-gray-500">Salary expectation</dt>
-                              <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">$120,000</dd>
-                            </div>
-                            <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                              <dt class="text-sm font-medium text-gray-500">About</dt>
-                              <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                                @if ($movie)
-                                {{ $movie->overview }}
-                                    @endif
-                                </dd>
-                            </div>
-                          </dl>
+                            <dl>
+                                <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                                    <dt class="text-sm font-medium text-gray-500">Full name</dt>
+                                    <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">Margot Foster</dd>
+                                </div>
+                                <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                                    <dt class="text-sm font-medium text-gray-500">Application for</dt>
+                                    <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">Backend Developer</dd>
+                                </div>
+                                <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                                    <dt class="text-sm font-medium text-gray-500">Email address</dt>
+                                    <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                                        margotfoster@example.com</dd>
+                                </div>
+                                <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                                    <dt class="text-sm font-medium text-gray-500">Salary expectation</dt>
+                                    <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">$120,000</dd>
+                                </div>
+                                <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                                    <dt class="text-sm font-medium text-gray-500">About</dt>
+                                    <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                                        @if ($movie)
+                                        {{ $movie->overview }}
+                                        @endif
+                                    </dd>
+                                </div>
+                            </dl>
                         </div>
-                      </div>
+                    </div>
                 </div>
             </div>
 
