@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('lang');
             $table->string('video_format');
             $table->boolean('is_public')->default(0);
-            $table->bigInteger('visitors')->default(1);
+            $table->bigInteger('visits')->default(1);
             $table->string('slug');
             $table->decimal('rating', 8,1);
             $table->string('poster_path');

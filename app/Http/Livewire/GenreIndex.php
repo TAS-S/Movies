@@ -3,62 +3,50 @@
 namespace App\Http\Livewire;
 
 use App\Models\Genre;
-use Livewire\Component;
-use Illuminate\Support\Str;
-use Livewire\WithPagination;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Str;
+use Livewire\Component;
+use Livewire\WithPagination;
 
 class GenreIndex extends Component
 {
     use WithPagination;
 
-    protected $key = '9510154dda5827dc6ce167f4d0027379';
-
     public $tmdbId;
     public $title;
     public $genreId;
 
+    public $search = '';
+    public $sort = 'asc';
+    public $perPage = 5;
+
     public $showGenreModal = false;
 
     protected $rules = [
-        'title' => 'required'
+        'title' => 'required',
     ];
-
-    // public function generateGenre()
-    // {
-    //     // $newGenre = Http::get('https://api.themoviedb.org/3/genre/' . $this->tmdbId . '?api_key=9510154dda5827dc6ce167f4d0027379&language=en-US')->json();
-    //     $newGenre = Http::get('https://api.themoviedb.org/3/genre/movie/list?api_key=9510154dda5827dc6ce167f4d0027379&language=en-US')->json();
-
-    //     $genre = Genre::where('tmdb_id', $newGenre['id'])->first();
-
-    //     if(!$genre){
-    //         Genre::create([
-    //         'tmdb_id' => $newGenre['id'],
-    //         'title' => $newGenre['name'],
-    //         'slug' => Str::slug($newGenre['name'])
-    //     ]);
-    //     } else {
-    //         $this->dispatchBrowserEvent('banner-message', ['style' => 'danger', 'message' => 'Genre exists!']);
-    //     }
-    // }
 
     public function generateGenre()
     {
-        // $newGenre = Http::get('https://api.themoviedb.org/3/genre/' . $this->tmdbId . '?api_key=9510154dda5827dc6ce167f4d0027379&language=en-US')->json();
-        $newGenre = Http::get('https://api.themoviedb.org/3/genre/movie/list?api_key=9510154dda5827dc6ce167f4d0027379&language=en-US')->json();
+        $newGenre = Http::get('https://api.themoviedb.org/3/genre/' . $this->tmdbId . '?api_key=9510154dda5827dc6ce167f4d0027379&language=en-US')->json();
 
-        // $genre = Genre::all();
+        // dd($newGenre);
 
-        Genre::create([
-            'tmdb_id' => $newGenre['id'],
-            'title' => $newGenre['name'],
-            'slug' => Str::slug($newGenre['name'])
-        ]);
+        $genre = Genre::where('tmdb_id', $newGenre['id'])->first();
 
-        $this->dispatchBrowserEvent('banner-message', ['style' => 'danger', 'message' => 'Genre exists!']);
 
+        if (!$genre) {
+            Genre::create([
+                'tmdb_id' => $newGenre['id'],
+                'title'    => $newGenre['name'],
+                'slug'    => Str::slug($newGenre['name']),
+            ]);
+            $this->reset();
+            $this->dispatchBrowserEvent('banner-message', ['style' => 'success', 'message' => 'Genre created']);
+        } else {
+            $this->dispatchBrowserEvent('banner-message', ['style' => 'danger', 'message' => 'Genre exisit']);
+        }
     }
-
 
     public function showEditModal($id)
     {
@@ -78,29 +66,33 @@ class GenreIndex extends Component
         $this->validate();
         $genre = Genre::findOrFail($this->genreId);
         $genre->update([
-            'name' => $this->title
-
+            'title' => $this->title,
         ]);
-        $this->dispatchBrowserEvent('banner-message', ['style' => 'success', 'message' => 'Genre updated successfully']);
+        $this->dispatchBrowserEvent('banner-message', ['style' => 'success', 'message' => 'Genre updated']);
         $this->reset();
+    }
+
+    public function closeGenreModal()
+    {
+        $this->reset();
+        $this->resetValidation();
     }
 
     public function deleteGenre($id)
     {
         Genre::findOrFail($id)->delete();
-        $this->dispatchBrowserEvent('banner-message', ['style' => 'danger', 'message' => 'Genre deleted successfully']);
+        $this->dispatchBrowserEvent('banner-message', ['style' => 'success', 'message' => 'Genre deleted']);
+        $this->reset();
     }
 
-    public function closeGenreModal()
+    public function resetFilters()
     {
-        // $this->reset();
-        $this->showGenreModal = false;
-        $this->resetValidation();
+        $this->reset(['search', 'sort', 'perPage']);
     }
     public function render()
     {
         return view('livewire.genre-index', [
-            'genres' => Genre::paginate(5)
+            'genres' => Genre::search('title', $this->search)->orderBy('title', $this->sort)->paginate($this->perPage)
         ]);
     }
 }

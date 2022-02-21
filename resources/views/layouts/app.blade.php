@@ -23,7 +23,9 @@
         <x-jet-banner />
 
         <div x-data="{ sidebarOpen: false }" class="flex h-screen bg-gray-200 font-roboto">
+            @role('admin')
             <x-sidebar></x-sidebar>
+            @endrole
             <div class="flex-1 flex flex-col overflow-hidden">
                 <x-header></x-header>
                 <!-- Page Heading -->

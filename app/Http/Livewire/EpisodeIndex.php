@@ -25,6 +25,7 @@ class EpisodeIndex extends Component
     public $overview;
 
     public $showEpisodeModal = false;
+    public $isPublic;
 
     protected $rules = [
         'name' => 'required',
@@ -82,6 +83,7 @@ class EpisodeIndex extends Component
         $this->name = $episode->name;
         $this->overview = $episode->overview;
         $this->episodeNumber = $episode->episode_number;
+        $this->isPublic = $episode->is_public;
     }
 
     public function closeEpisodeModal()
@@ -97,7 +99,8 @@ class EpisodeIndex extends Component
         $episode->update([
             'name' => $this->name,
             'season_number' => $this->episodeNumber,
-            'overview' => $this->overview
+            'overview' => $this->overview,
+            'is_public' => $this->isPublic
         ]);
         $this->dispatchBrowserEvent('banner-message', ['style' => 'success', 'message' => 'Episode updated successfully']);
         $this->reset(['episodeId','episodeNumber', 'name', 'overview', 'showEpisodeModal']);
