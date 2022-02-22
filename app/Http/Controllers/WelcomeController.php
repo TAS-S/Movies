@@ -1,0 +1,20 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Models\Movie;
+use App\Models\Serie;
+use App\Models\Episode;
+use Illuminate\Http\Request;
+
+class WelcomeController extends Controller
+{
+    public function index()
+    {
+        $movies = Movie::orderBy('updated_at', 'desc')->take(12)->get();
+        $series = Serie::orderBy('created_at', 'desc')->take(12)->get();
+        $episodes = Episode::orderBy('created_at', 'desc')->take(12)->get();
+
+        return view('welcome', compact('movies', 'series', 'episodes'));
+    }
+}

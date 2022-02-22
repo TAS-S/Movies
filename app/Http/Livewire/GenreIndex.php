@@ -26,26 +26,44 @@ class GenreIndex extends Component
         'title' => 'required',
     ];
 
+    // public function generateGenre()
+    // {
+    //     $newGenre = Http::get('https://api.themoviedb.org/3/genre/' . $this->tmdbId . '?api_key=9510154dda5827dc6ce167f4d0027379&language=en-US')->json();
+
+    //     // dd($newGenre);
+
+    //     $genre = Genre::where('tmdb_id', $newGenre['id'])->first();
+    //     dd($genre);
+
+    //     if (!$genre) {
+    //         Genre::create([
+    //             'tmdb_id' => $newGenre['id'],
+    //             'title'    => $newGenre['name'],
+    //             'slug'    => Str::slug($newGenre['name']),
+    //         ]);
+    //         $this->reset();
+    //         $this->dispatchBrowserEvent('banner-message', ['style' => 'success', 'message' => 'Genre created']);
+    //     } else {
+    //         $this->dispatchBrowserEvent('banner-message', ['style' => 'danger', 'message' => 'Genre exisit']);
+    //     }
+    // }
+
     public function generateGenre()
     {
-        $newGenre = Http::get('https://api.themoviedb.org/3/genre/' . $this->tmdbId . '?api_key=9510154dda5827dc6ce167f4d0027379&language=en-US')->json();
+        $newGenre = Http::get('https://api.themoviedb.org/3/genre/movie/list?api_key=9510154dda5827dc6ce167f4d0027379&language=en-US')->json();
 
-        // dd($newGenre);
+        $genre = $newGenre['genres'];
 
-        $genre = Genre::where('tmdb_id', $newGenre['id'])->first();
-
-
-        if (!$genre) {
+        foreach ($genre as $gen) {
             Genre::create([
-                'tmdb_id' => $newGenre['id'],
-                'title'    => $newGenre['name'],
-                'slug'    => Str::slug($newGenre['name']),
+                'tmdb_id' => $gen['id'],
+                'title'    => $gen['name'],
+                'slug'    => Str::slug($gen['name'])
             ]);
-            $this->reset();
-            $this->dispatchBrowserEvent('banner-message', ['style' => 'success', 'message' => 'Genre created']);
-        } else {
-            $this->dispatchBrowserEvent('banner-message', ['style' => 'danger', 'message' => 'Genre exisit']);
         }
+
+        $this->reset();
+        $this->dispatchBrowserEvent('banner-message', ['style' => 'success', 'message' => 'Genre created']);
     }
 
     public function showEditModal($id)
