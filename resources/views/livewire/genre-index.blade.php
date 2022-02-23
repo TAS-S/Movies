@@ -2,10 +2,10 @@
     <div class="w-full flex mb-4 p-2 justify-end">
         <form class="flex space-x-4 shadow bg-white rounded-md m-2 p-2">
             <div class="p-1 flex items-center">
-                <label for="tmdb_id_g" class="block text-sm font-medium text-gray-700 mr-4 pr-4">Genre TDMB ID</label>
-                <div class="relative rounded-md shadow-sm">
-                    <input wire:model="tmdbId" id="tmdbId" name="tmdbId" class="px-3 py-2 border border-gray-500 rounded p-5" placeholder="Genre ID">
-                </div>
+                <label for="tmdb_id_g" class="block text-sm font-medium text-gray-700 mr-4 pr-4">Import Genre TDMB ID</label>
+                {{-- <div class="relative rounded-md shadow-sm">
+                    <input wire:model="tmdbId" id="tmdbId" name="tmdbId" class="px-3 py-2 border border-gray-500 rounded p-5" placeholder="Genre import">
+                </div> --}}
             </div>
             <div class="p-1">
                 <x-jet-button type="button" wire:click="generateGenre" class="inline-flex items-center justify-center py-2 px-4 border border-transparent text-base leading-6 font-medium rounded bg-green-700">

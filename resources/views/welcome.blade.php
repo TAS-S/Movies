@@ -8,20 +8,27 @@
                 @foreach ($movies as $movie)
                 <x-movie-card>
                     <x-slot name="image">
-                        <a href="">
+                        <a href="{{ route('movies.show', $movie->slug) }}">
                             <div class="aspect-w-2 aspect-h-3">
                                 <img class="object-cover" src="https://www.themoviedb.org/t/p/w220_and_h330_face/{{ $movie->poster_path }}">
-                                <div class="absolute left-0 top-0 h-8 w-12 bg-gray-800 text-yellow-500 text-center font-bold">New</div>
+                                <div class="absolute left-0 top-0 h-6 w-12 bg-gray-800/50 text-yellow-500 text-center font-bold">New</div>
                             </div>
                             <div class="absolute inset-0 z-10 bg-gradient-to-t from-black to-transparent"></div>
-                            <div class="absolute z-10 bottom-2 left-2 text-white font-bold">
-                                @foreach ($movie->genres as $genre)
+                            <div class="absolute inset-y-0 left-5 z-10 invisible group-hover:visible flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-blue-500 bg-indigo-300 rounded-full" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
+                                </svg>
+                                <div class="absolute transition opacity-0 duration-500 ease-in-put transform group-hover:opacity-100 group-hover:translate-x-16 group-hover:p-2 text-yellow-500 font-bold">Play</div>
 
+                            </div>
+                            <div class="absolute z-10 bottom-2 left-2 text-indigo-300 text-sm font-bold group-hover:text-blue-400">
+                                @foreach ($movie->genres as $genre)
+                                    {{ $genre->title }}
                                 @endforeach
                             </div>
                         </a>
                     </x-slot>
-                    <a href="/">
+                    <a href="{{ route('movies.show', $movie->slug) }}">
                         <div class="dark:text-white font-bold group-hover:text-blue-400">{{ $movie->title }}</div>
                     </a>
                 </x-movie-card>
