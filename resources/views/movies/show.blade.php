@@ -56,12 +56,14 @@
                                     <x-movie-card>
                                         <x-slot name="image">
                                             {{-- <a href="{{ route('casts.show', $cast->slug) }}"> --}}
-                                            <img class=""
-                                                src="https://www.themoviedb.org/t/p/w220_and_h330_face/{{ $cast->poster_path }}">
+                                            <a href="{{ route('casts.show', $cast->slug) }}">
+                                                <img class=""
+                                                    src="https://www.themoviedb.org/t/p/w220_and_h330_face/{{ $cast->poster_path }}">
                                             </a>
                                         </x-slot>
                                         {{-- <a href="{{ route('casts.show', $cast->slug) }}"> --}}
-                                        <span class="text-white">{{ $cast->name }}</span>
+                                        <a href="{{ route('casts.show', $cast->slug) }}">
+                                            <span class="text-white">{{ $cast->name }}</span>
                                         </a>
                                     </x-movie-card>
                                 @endforeach
@@ -82,11 +84,14 @@
                         </div>
                     </div>
                 </section>
-                <section class="max-w-6xl mx-auto bg-yellow-400 text-indigo-600 mt-6 p-2">
-                    @foreach ($movie->tags as $tag)
-                        <span class="font-bold hover:text-indigo-800 cursor-pointer">#{{ $tag->tag_name }}</span>
-                    @endforeach
-                </section>
+                @if (count($movie->tags) > 0)
+                    <section
+                        class="max-w-6xl mx-auto bg-gradient-to-r from-yellow-400 to-transparent text-indigo-600 mt-6 p-2">
+                        @foreach ($movie->tags as $tag)
+                            <span class="font-bold hover:text-indigo-800 cursor-pointer">#{{ $tag->tag_name }}</span>
+                        @endforeach
+                    </section>
+                @endif
             </main>
     @endif
 

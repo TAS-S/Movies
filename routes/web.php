@@ -8,8 +8,10 @@ use App\Http\Livewire\SerieIndex;
 use App\Http\Livewire\SeasonIndex;
 use App\Http\Livewire\EpisodeIndex;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CastController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\MovieController;
+use App\Http\Controllers\SerieController;
 use App\Http\Controllers\WelcomeController;
 
 /*
@@ -27,7 +29,11 @@ Route::get('/', [WelcomeController::class, 'index']);
 Route::get('/movies', [MovieController::class, 'index'])->name('movies.index');
 Route::get('/movies/{movie:slug}', [MovieController::class, 'show'])->name('movies.show');
 Route::get('/series', [SerieController::class, 'index'])->name('series.index');
+Route::get('/series{serie:slug}', [SerieController::class, 'show'])->name('series.show');
+Route::get('/series{serie:slug}/seasons/{season:slug}', [SerieController::class, 'seasonShow'])->name('season.show');
+Route::get('/episodes{episode:slug}', [SerieController::class, 'showEpisode'])->name('episodes.show');
 Route::get('/casts', [CastController::class, 'index'])->name('casts.index');
+Route::get('/casts/{cast:slug}', [CastController::class, 'show'])->name('casts.show');
 Route::get('/genre{slug}', [GenreController::class, 'show'])->name('genres.show');
 
 Route::middleware(['auth:sanctum', 'verified', 'role:admin'])->prefix('admin')->name('admin.')->group(function() {

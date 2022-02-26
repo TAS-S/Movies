@@ -2,10 +2,12 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Spatie\Searchable\Searchable;
+use Spatie\Searchable\SearchResult;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Movie extends Model
+class Movie extends Model implements Searchable
 {
     use HasFactory;
 
@@ -23,6 +25,17 @@ class Movie extends Model
         'backdrop_path',
         'slug'
     ];
+
+    public function getSearchResult(): SearchResult
+    {
+       $url = route('movies.show', $this->slug);
+
+        return new \Spatie\Searchable\SearchResult(
+           $this,
+           $this->title,
+           $url
+        );
+    }
 
     public function genres()
     {
